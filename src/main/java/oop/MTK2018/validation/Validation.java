@@ -20,7 +20,7 @@ public class Validation {
         announcer = a;
     }
 
-    public boolean validate(Object o) throws IllegalAccessException, UnsupportedDataType {
+    public boolean validate(Object o) throws UnsupportedDataType {
         announcer.clear(); // reset announcer
         // get all fields in the class
         Class c = o.getClass();
@@ -34,7 +34,7 @@ public class Validation {
         return false;
     }
 
-    private void validate(Object o, Field f) throws IllegalAccessException, UnsupportedDataType {
+    private void validate(Object o, Field f) throws UnsupportedDataType {
         ValidatorFactory factory = ValidatorFactory.getInstance();
         // get all annotations on each field
         Annotation[] annotations = f.getDeclaredAnnotations();

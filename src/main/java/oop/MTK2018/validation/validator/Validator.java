@@ -9,10 +9,10 @@ public abstract class Validator<T extends Annotation> {
     // check if the field is qualified for validation
     protected boolean verifyField(Field f){
         Class c = f.getType();
-        return c.isPrimitive() || c.getSimpleName().equalsIgnoreCase("string"); // only allow primitive types and string
+        return c.isPrimitive() || c.equals(String.class); // only allow primitive types and string
     }
 
-    public ValidationError validateField(Object o, T a, Field f) throws IllegalAccessException, UnsupportedDataType {
+    public ValidationError validateField(Object o, T a, Field f) throws UnsupportedDataType {
         if(!verifyField(f)){
             throw new UnsupportedDataType("Unsupported data type for annotation: " + a.annotationType().getSimpleName());
         }
@@ -20,5 +20,5 @@ public abstract class Validator<T extends Annotation> {
         return doValidate(o, f, a);
     }
 
-    protected abstract ValidationError doValidate(Object o, Field f, T a) throws IllegalAccessException;
+    protected abstract ValidationError doValidate(Object o, Field f, T a);
 }

@@ -8,7 +8,7 @@ import java.lang.reflect.Field;
 
 public class NotNullValidator extends Validator<NotNull>{
 
-    protected ValidationError doValidate(Object o, Field f, NotNull a) throws IllegalAccessException {
+    protected ValidationError doValidate(Object o, Field f, NotNull a){
         String val = FieldExtractor.getValue(o, f);
         if(val == null || val == ""){
             return new ValidationError(a.msg());
