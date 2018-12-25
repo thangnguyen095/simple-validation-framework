@@ -10,7 +10,7 @@ public class NotNullValidator extends Validator<NotNull>{
 
     protected ValidationError doValidate(Object o, Field f, NotNull a){
         String val = FieldExtractor.getValue(o, f);
-        if(val == null || val == ""){
+        if(val == null || val.isEmpty()){
             return new ValidationError(a.msg());
         }
         return null;

@@ -26,6 +26,12 @@ public class TextAnnouncer extends Announcer {
         setText(text);
     }
 
+    @Override
+    public void clear(){
+        super.clear();
+        setText("");
+    }
+
     void setText(String text){
         if (labelContainer == null) {
             textContainer.setText(text);
