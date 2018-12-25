@@ -12,7 +12,7 @@ public abstract class Announcer {
         errors.add(e);
     }
 
-    public List getErrors(){
+    public List<ValidationError> getErrors(){
         return errors;
     }
 
