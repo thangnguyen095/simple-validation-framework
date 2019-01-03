@@ -8,12 +8,6 @@ import java.lang.reflect.Field;
 
 public class NumberValidator extends Validator<Number> {
     @Override
-    protected boolean verifyField(Field f){
-        Class c = f.getType();
-        return c.equals(String.class);
-    }
-
-    @Override
     protected ValidationError doValidate(Object o, Field f, Number a) {
         String sVal = FieldExtractor.getValue(o, f);
         try {
