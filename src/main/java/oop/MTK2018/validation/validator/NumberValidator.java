@@ -10,15 +10,19 @@ public class NumberValidator extends Validator<Number> {
     @Override
     protected boolean verifyField(Field f){
         Class c = f.getType();
-        return c.equals(Integer.class);
+        return c.equals(String.class);
     }
 
     @Override
     protected ValidationError doValidate(Object o, Field f, Number a) {
-        if(!verifyField(f)){
+        String sVal = FieldExtractor.getValue(o, f);
+        try {
+            Integer iVal = Integer.parseInt(sVal);
+        }
+        catch (NumberFormatException e)
+        {
             return new ValidationError(a.msg());
         }
-
         return null;
     }
 }

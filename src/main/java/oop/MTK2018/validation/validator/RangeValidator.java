@@ -10,7 +10,7 @@ public class RangeValidator extends Validator<Range>{
     @Override
     protected boolean verifyField(Field f){
         Class c = f.getType();
-        return c.equals(Integer.class);
+        return c.equals(String.class);
     }
 
     @Override
