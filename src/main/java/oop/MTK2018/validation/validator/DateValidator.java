@@ -18,8 +18,8 @@ public class DateValidator extends Validator<Date> {
         String val = FieldExtractor.getValue(o, f);
 
         int day = Integer.parseInt(val.substring(0, 2));
-        int month = Integer.parseInt(val.substring(0, 2));
-        int year = Integer.parseInt(val.substring(0, 2));
+        int month = Integer.parseInt(val.substring(3, 5));
+        int year = Integer.parseInt(val.substring(6, 8));
 
 //        if (year % 4 == 0 && year % 100 != 0) {
 //            int days[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
